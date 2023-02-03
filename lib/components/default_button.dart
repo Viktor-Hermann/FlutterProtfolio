@@ -10,18 +10,12 @@ class DefaultButton extends StatelessWidget {
     this.press,
   }) : super(key: key);
 
-  final String imageSrc, text;
   final Function press;
+  final String imageSrc, text;
 
   @override
   Widget build(BuildContext context) {
-    return FlatButton(
-      padding: EdgeInsets.symmetric(
-        vertical: kDefaultPadding,
-        horizontal: kDefaultPadding * 2.5,
-      ),
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(50)),
-      color: Color(0xFFE8F0F9),
+    return TextButton(
       onPressed: press,
       child: Row(
         children: [
