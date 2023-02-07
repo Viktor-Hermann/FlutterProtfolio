@@ -1,30 +1,27 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:web_app/components/default_button.dart';
-import 'package:web_app/components/section_title.dart';
-import 'package:web_app/constants.dart';
+import 'package:web_app/presentation/widgets/my_outline_button.dart';
+import 'package:web_app/presentation/widgets/section_title.dart';
+import 'package:web_app/utils/constants.dart';
 
-import 'components/socal_card.dart';
+import 'widgets/socal_card.dart';
 
 class ContactSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      // this height only for demo
-      // height: 500,
-      width: double.infinity,
+      width: MediaQuery.of(context).size.width,
       decoration: BoxDecoration(
-        color: Color(0xFFE8F0F9),
         image: DecorationImage(
           fit: BoxFit.cover,
-          image: AssetImage("assets/images/bg_img_2.png"),
+          image: AssetImage("assets/images/contact_us.png"),
         ),
       ),
       child: Column(
         children: [
-          SizedBox(height: kDefaultPadding * 2.5),
           SectionTitle(
-            title: "Contact Me",
-            subTitle: "For Project inquiry and information",
+            title: 'contactTitle'.tr(),
+            subTitle: 'contactSubtitle'.tr(),
             color: Color(0xFF07E24A),
           ),
           ContactBox()
@@ -42,40 +39,53 @@ class ContactBox extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      constraints: BoxConstraints(maxWidth: 1110),
-      margin: EdgeInsets.only(top: kDefaultPadding * 2),
+      constraints:
+          BoxConstraints(maxWidth: MediaQuery.of(context).size.width * 0.5),
+      margin: EdgeInsets.only(top: kDefaultPadding),
       padding: EdgeInsets.all(kDefaultPadding * 3),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.only(
-          topLeft: Radius.circular(20),
-          topRight: Radius.circular(20),
-        ),
+            topLeft: Radius.circular(20),
+            topRight: Radius.circular(20),
+            bottomLeft: Radius.circular(20),
+            bottomRight: Radius.circular(20)),
       ),
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               SocalCard(
-                color: Color(0xFFD9FFFC),
-                iconSrc: "assets/images/skype.png",
-                name: 'TheFlutterWay',
-                press: () {},
-              ),
-              SocalCard(
-                color: Color(0xFFE4FFC7),
                 iconSrc: "assets/images/whatsapp.png",
-                name: 'TheFlutterWay',
                 press: () {},
               ),
               SocalCard(
-                color: Color(0xFFE8F0F9),
-                iconSrc: "assets/images/messanger.png",
-                name: 'TheFlutterWay',
+                iconSrc: "assets/images/linkedin.png",
+                press: () {},
+              ),
+              SocalCard(
+                iconSrc: "assets/images/telephone.png",
                 press: () {},
               ),
             ],
+          ),
+          SizedBox(height: kDefaultPadding * 2),
+          Text(
+            'contactMeQestionOrJob'.tr(),
+            style: Theme.of(context).textTheme.headlineSmall.copyWith(
+                color: Colors.grey[700],
+                fontWeight: FontWeight.bold,
+                fontSize: 26),
+          ),
+          SizedBox(height: kDefaultPadding),
+          Text(
+            'contactMeRequest'.tr(),
+            style: Theme.of(context).textTheme.headlineSmall.copyWith(
+                color: Colors.grey[700],
+                fontWeight: FontWeight.w400,
+                fontSize: 22),
           ),
           SizedBox(height: kDefaultPadding * 2),
           ContactForm(),
@@ -102,8 +112,8 @@ class ContactForm extends StatelessWidget {
             child: TextFormField(
               onChanged: (value) {},
               decoration: InputDecoration(
-                labelText: "Your Name",
-                hintText: "Enter Your Name",
+                labelText: 'contactFormName'.tr(),
+                hintText: 'contactFormNameHint'.tr(),
               ),
             ),
           ),
@@ -112,8 +122,8 @@ class ContactForm extends StatelessWidget {
             child: TextFormField(
               onChanged: (value) {},
               decoration: InputDecoration(
-                labelText: "Email Address",
-                hintText: "Enter your email address",
+                labelText: 'contactFormEmail'.tr(),
+                hintText: 'contactFormEmailHint'.tr(),
               ),
             ),
           ),
@@ -122,8 +132,8 @@ class ContactForm extends StatelessWidget {
             child: TextFormField(
               onChanged: (value) {},
               decoration: InputDecoration(
-                labelText: "Project Type",
-                hintText: "Select Project Type",
+                labelText: 'contactFormProjectType'.tr(),
+                hintText: 'contactFormProjectTypeHint'.tr(),
               ),
             ),
           ),
@@ -132,28 +142,28 @@ class ContactForm extends StatelessWidget {
             child: TextFormField(
               onChanged: (value) {},
               decoration: InputDecoration(
-                labelText: "Project Budget",
-                hintText: "Select Project Budget",
+                labelText: 'contactFormBudget'.tr(),
+                hintText: 'contactFormBudgetHint'.tr(),
               ),
             ),
           ),
           SizedBox(
-            // height: 300,
-            // TextField by default cover the height, i tryed to fix this problem but i cant
             child: TextFormField(
+              maxLines: 10,
+              textAlign: TextAlign.start,
               onChanged: (value) {},
               decoration: InputDecoration(
-                labelText: "Description",
-                hintText: "Write some description",
-              ),
+                  labelText: 'contactFormDescription'.tr(),
+                  hintText: 'contactFormDescriptionHint'.tr(),
+                  alignLabelWithHint: true),
             ),
           ),
           SizedBox(height: kDefaultPadding * 2),
           Center(
             child: FittedBox(
-              child: DefaultButton(
-                imageSrc: "assets/images/contact_icon.png",
-                text: "Contact Me!",
+              child: MyOutlineButton(
+                imageSrc: "assets/images/send.png",
+                text: "Send request!",
                 press: () {},
               ),
             ),

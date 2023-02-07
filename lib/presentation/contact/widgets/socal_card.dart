@@ -1,18 +1,13 @@
 import 'package:flutter/material.dart';
 
-import '../../../constants.dart';
-
 class SocalCard extends StatefulWidget {
   const SocalCard({
     Key key,
     this.iconSrc,
-    this.name,
-    this.color,
     this.press,
   }) : super(key: key);
 
-  final String iconSrc, name;
-  final Color color;
+  final String iconSrc;
   final Function press;
 
   @override
@@ -33,15 +28,6 @@ class _SocalCardState extends State<SocalCard> {
         },
         child: AnimatedContainer(
           duration: Duration(milliseconds: 200),
-          padding: EdgeInsets.symmetric(
-            vertical: kDefaultPadding / 2,
-            horizontal: kDefaultPadding * 1.5,
-          ),
-          decoration: BoxDecoration(
-            color: widget.color,
-            borderRadius: BorderRadius.circular(10),
-            boxShadow: [if (isHover) kDefaultCardShadow],
-          ),
           child: Row(
             children: [
               Image.asset(
@@ -49,8 +35,6 @@ class _SocalCardState extends State<SocalCard> {
                 height: 80,
                 width: 80,
               ),
-              SizedBox(width: kDefaultPadding),
-              Text(widget.name),
             ],
           ),
         ),
