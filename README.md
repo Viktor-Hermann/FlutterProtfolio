@@ -1,7 +1,40 @@
-# A Portfolio Website - Flutter Web
+<!-- markdownlint-disable MD032 MD033-->
+# 🔥 **VApps-IT Apps**
+Responsive Portfolio Website - Flutter Web
 
-### This UI is not Responsive
+  <img src="https://i.imgur.com/xtXUDwY.png" width="100%"/> 
 
-### Working on Responsive
+---
+## ✨ **Highlights**
 
-<img src="/Portfolio.png" alt="portfolio" width="600">
+ **Important notes releated to this project**
+ 
+- Implemented with Flutter Web
+- Clean architecture
+- Riverpod as Statemagment 
+- Responsive Web app
+
+---
+
+## ⚡ **Installation**
+
+ **Requirements - Flutter SDK should be present + VSCode**
+ 
+1. Clone Project.
+2. Open Terminal in VSCode in root folder of project and run
+   ```
+   flutter pub get
+    ```
+3. Run app with by pressing F5 on VSCode.
+
+4. Enjoy.
+
+---
+
+## 📸 **Preview**
+
+<img src="https://i.imgur.com/Iv2CGNO.gif" />
+
+
+_Made with a lot of ❤️❤️ by **[@
+V.Hermann](https://github.com/Viktor-Hermann)**_
