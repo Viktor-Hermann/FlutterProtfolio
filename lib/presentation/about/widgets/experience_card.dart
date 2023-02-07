@@ -1,6 +1,7 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
-import '../../../constants.dart';
+import '../../../utils/constants.dart';
 
 class ExperienceCard extends StatelessWidget {
   const ExperienceCard({
@@ -17,21 +18,10 @@ class ExperienceCard extends StatelessWidget {
       padding: EdgeInsets.all(kDefaultPadding),
       height: 240,
       width: 255,
-      decoration: BoxDecoration(
-        color: Color(0xFFF7E8FF),
-        borderRadius: BorderRadius.circular(10),
-      ),
       child: DecoratedBox(
         decoration: BoxDecoration(
-          color: Color(0xFFEDD2FC),
+          color: Color(0xFF304479).withOpacity(0.8),
           borderRadius: BorderRadius.circular(10),
-          boxShadow: [
-            BoxShadow(
-              offset: Offset(0, 3),
-              blurRadius: 6,
-              color: Color(0xFFA600FF).withOpacity(0.25),
-            ),
-          ],
         ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -45,13 +35,13 @@ class ExperienceCard extends StatelessWidget {
                     fontWeight: FontWeight.bold,
                     foreground: Paint()
                       ..style = PaintingStyle.stroke
-                      ..strokeWidth = 6
-                      ..color = Color(0xFFDFA3FF).withOpacity(0.5),
+                      ..strokeWidth = 2
+                      ..color = Colors.white.withOpacity(0.5),
                     shadows: [
                       BoxShadow(
-                        offset: Offset(0, 5),
+                        offset: Offset(0, 2),
                         blurRadius: 10,
-                        color: Color(0xFFA600FF).withOpacity(0.5),
+                        color: Color(0xFF405aa8).withOpacity(0.5),
                       ),
                     ],
                   ),
@@ -68,9 +58,9 @@ class ExperienceCard extends StatelessWidget {
             ),
             SizedBox(height: kDefaultPadding / 2),
             Text(
-              "Years of Experience",
+              'experienceYearTitle'.tr(),
               style: TextStyle(
-                color: Color(0xFFA600FF),
+                color: Colors.white,
               ),
             )
           ],
