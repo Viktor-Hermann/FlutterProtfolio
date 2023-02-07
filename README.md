@@ -2,7 +2,7 @@
 # 🔥 **VApps-IT Apps**
 Responsive Portfolio Website - Flutter Web
 
-  <img src="https://i.imgur.com/xtXUDwY.png" width="100%"/> 
+<img src="brand_logo.png" alt="portfolio" width="100%">
 
 ---
 ## ✨ **Highlights**
@@ -33,7 +33,7 @@ Responsive Portfolio Website - Flutter Web
 
 ## 📸 **Preview**
 
-<img src="https://i.imgur.com/Iv2CGNO.gif" />
+<img src="preview.gif" alt="preview" width="100%">
 
 
 _Made with a lot of ❤️❤️ by **[@
