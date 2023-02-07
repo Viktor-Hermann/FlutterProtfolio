@@ -1,34 +1,40 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
-import '../../../constants.dart';
+import '../../../utils/constants.dart';
 
-class Menu extends StatefulWidget {
+class MenuHorizontal extends StatefulWidget {
   @override
-  _MenuState createState() => _MenuState();
+  _MenuHorizontalState createState() => _MenuHorizontalState();
 }
 
-class _MenuState extends State<Menu> {
+class _MenuHorizontalState extends State<MenuHorizontal> {
   int selectedIndex = 0;
   int hoverIndex = 0;
   List<String> menuItems = [
-    "Home",
-    "Abour",
-    "Services",
-    "Portfolio",
-    "Testimonial",
-    "Contact"
+    '',
+    'menuHome'.tr(),
+    'menuAboutMe'.tr(),
+    'menuServices'.tr(),
+    'menuMyProjects'.tr(),
+    'menuFeedback'.tr(),
+    'menuContact'.tr(),
+    ''
   ];
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: kDefaultPadding * 2.5),
-      constraints: BoxConstraints(maxWidth: 1110),
-      height: 100,
+      padding: EdgeInsets.symmetric(horizontal: kDefaultPadding),
+      width: MediaQuery.of(context).size.width,
+      height: 54,
       decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.only(
-          topLeft: Radius.circular(10),
-          topRight: Radius.circular(10),
+        gradient: LinearGradient(
+          begin: Alignment.topCenter,
+          end: Alignment.bottomCenter,
+          colors: [
+            Colors.grey[200],
+            Colors.white,
+          ],
         ),
         boxShadow: [kDefaultShadow],
       ),
@@ -54,10 +60,10 @@ class _MenuState extends State<Menu> {
           });
         },
         child: Container(
-          constraints: BoxConstraints(minWidth: 122),
           height: 100,
           child: Stack(
             alignment: Alignment.center,
+            fit: StackFit.loose,
             children: [
               Text(
                 menuItems[index],
@@ -69,7 +75,7 @@ class _MenuState extends State<Menu> {
                 left: 0,
                 right: 0,
                 bottom:
-                    selectedIndex != index && hoverIndex == index ? -20 : -32,
+                    selectedIndex != index && hoverIndex == index ? -5 : -32,
                 child: Image.asset("assets/images/Hover.png"),
               ),
               // Select
@@ -77,7 +83,7 @@ class _MenuState extends State<Menu> {
                 duration: Duration(milliseconds: 200),
                 left: 0,
                 right: 0,
-                bottom: selectedIndex == index ? -2 : -32,
+                bottom: selectedIndex == index ? -1 : -32,
                 child: Image.asset("assets/images/Hover.png"),
               ),
             ],
