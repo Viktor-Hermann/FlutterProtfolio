@@ -12,8 +12,9 @@ class IntroPersonText extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     Locale _currentLocale = ref.watch(currentLocaleProvider);
-    List<Locale> _supportedLocales = ref.read(supportedLocalesProvider);
     HomeController homeController = HomeController(ref: ref);
+
+    bool isLocaleDE = _currentLocale == Locale('de', 'DE');
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -41,10 +42,9 @@ class IntroPersonText extends ConsumerWidget {
                   child: Opacity(
                     opacity: 0.75,
                     child: Image.asset(
-                      "assets/images/german.png",
-                      // languageToggle
-                      //     ? "assets/images/german.png"
-                      //     : "assets/images/english.png",
+                      isLocaleDE
+                          ? "assets/images/english.png"
+                          : "assets/images/german.png",
                       height: 48,
                       width: 48,
                     ),
