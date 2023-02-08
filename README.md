@@ -13,6 +13,7 @@ Responsive Portfolio Website - Flutter Web
 - Clean architecture
 - Riverpod as Statemagment 
 - Responsive Web app
+- Localization
 
 ---
 
