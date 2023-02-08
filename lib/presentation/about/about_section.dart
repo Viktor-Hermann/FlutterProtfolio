@@ -1,5 +1,5 @@
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:web_app/generated/l10n.dart';
 import 'package:web_app/presentation/widgets/my_outline_button.dart';
 import 'package:web_app/utils/constants.dart';
 
@@ -29,35 +29,35 @@ class AboutSection extends StatelessWidget {
                         style: DefaultTextStyle.of(context).style,
                         children: [
                           TextSpan(
-                            text: 'aboutMeDescription'.tr(),
+                            text: S.of(context).aboutMeDescription,
                             style: TextStyle(
                                 fontWeight: FontWeight.w200,
                                 color: kTextColor,
                                 height: 2),
                           ),
                           TextSpan(
-                            text: 'aboutMeDescription_1'.tr(),
+                            text: S.of(context).aboutMeDescription_1,
                             style: TextStyle(
                                 fontWeight: FontWeight.bold,
                                 color: kTextColor,
                                 height: 2),
                           ),
                           TextSpan(
-                            text: 'aboutMeDescription_2'.tr(),
+                            text: S.of(context).aboutMeDescription_2,
                             style: TextStyle(
                                 fontWeight: FontWeight.w200,
                                 color: kTextColor,
                                 height: 2),
                           ),
                           TextSpan(
-                            text: 'aboutMeDescription_3'.tr(),
+                            text: S.of(context).aboutMeDescription_3,
                             style: TextStyle(
                                 fontWeight: FontWeight.bold,
                                 color: kTextColor,
                                 height: 2),
                           ),
                           TextSpan(
-                              text: 'aboutMeDescription_4'.tr(),
+                              text: S.of(context).aboutMeDescription_4,
                               style: TextStyle(
                                   fontWeight: FontWeight.w200,
                                   color: kTextColor,
@@ -67,7 +67,7 @@ class AboutSection extends StatelessWidget {
                     ),
                   ),
                 ),
-                ExperienceCard(numOfExp: 'experienceYear'.tr()),
+                ExperienceCard(numOfExp: S.of(context).experienceYear),
                 Expanded(
                   child: AboutSectionText(
                     richText: RichText(
@@ -75,56 +75,56 @@ class AboutSection extends StatelessWidget {
                         style: DefaultTextStyle.of(context).style,
                         children: [
                           TextSpan(
-                            text: 'experienceYearDescription'.tr(),
+                            text: S.of(context).experienceYearDescription,
                             style: TextStyle(
                                 fontWeight: FontWeight.w200,
                                 color: kTextColor,
                                 height: 2),
                           ),
                           TextSpan(
-                            text: 'experienceYearDescription_1'.tr(),
+                            text: S.of(context).experienceYearDescription_1,
                             style: TextStyle(
                                 fontWeight: FontWeight.bold,
                                 color: kTextColor,
                                 height: 2),
                           ),
                           TextSpan(
-                            text: 'experienceYearDescription_2'.tr(),
+                            text: S.of(context).experienceYearDescription_2,
                             style: TextStyle(
                                 fontWeight: FontWeight.w200,
                                 color: kTextColor,
                                 height: 2),
                           ),
                           TextSpan(
-                            text: 'experienceYearDescription_3'.tr(),
+                            text: S.of(context).experienceYearDescription_3,
                             style: TextStyle(
                                 fontWeight: FontWeight.w200,
                                 color: kTextColor,
                                 height: 2),
                           ),
                           TextSpan(
-                            text: 'experienceYearDescription_4'.tr(),
+                            text: S.of(context).experienceYearDescription_4,
                             style: TextStyle(
                                 fontWeight: FontWeight.bold,
                                 color: kTextColor,
                                 height: 2),
                           ),
                           TextSpan(
-                            text: 'experienceYearDescription_5'.tr(),
+                            text: S.of(context).experienceYearDescription_5,
                             style: TextStyle(
                                 fontWeight: FontWeight.w200,
                                 color: kTextColor,
                                 height: 2),
                           ),
                           TextSpan(
-                            text: 'experienceYearDescription_6'.tr(),
+                            text: S.of(context).experienceYearDescription_6,
                             style: TextStyle(
                                 fontWeight: FontWeight.bold,
                                 color: kTextColor,
                                 height: 2),
                           ),
                           TextSpan(
-                            text: 'experienceYearDescription_7'.tr(),
+                            text: S.of(context).experienceYearDescription_7,
                             style: TextStyle(
                                 fontWeight: FontWeight.w200,
                                 color: kTextColor,
@@ -143,13 +143,13 @@ class AboutSection extends StatelessWidget {
               children: [
                 MyOutlineButton(
                   imageSrc: "assets/images/download.png",
-                  text: 'downloadCvAction'.tr(),
+                  text: S.of(context).downloadCvAction,
                   press: () {},
                 ),
                 SizedBox(width: kDefaultPadding * 5),
                 MyOutlineButton(
                   imageSrc: "assets/images/hand.png",
-                  text: 'hireMeAction'.tr(),
+                  text: S.of(context).hireMeAction,
                   press: () {},
                 ),
               ],

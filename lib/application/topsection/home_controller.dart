@@ -1,9 +1,18 @@
 import 'dart:ui';
 
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-final languageToggleProvider = StateProvider<bool>((ref) => false);
+final currentLocaleProvider = StateProvider<Locale>((ref) {
+  return Locale('de', 'DE');
+});
+
+/// Supported Locales Provider
+final supportedLocalesProvider = Provider<List<Locale>>((_) {
+  return const [
+    Locale('en', 'US'),
+    Locale('de', 'DE'),
+  ];
+});
 
 class HomeController {
   final WidgetRef ref;
@@ -11,13 +20,10 @@ class HomeController {
   HomeController({this.ref});
 
   changeLanguage() {
-    var language = ref.read(languageToggleProvider.notifier).state;
-    language = !language;
-
-    ref.watch(languageToggleProvider.notifier).state
-        ? ref.context.setLocale(Locale('de', 'DE'))
-        : ref.context.setLocale(Locale('en', 'US'));
-
-        ref.refresh(languageToggleProvider);
+    if (ref.read(currentLocaleProvider) == Locale('de', 'DE')) {
+      ref.read(currentLocaleProvider.notifier).state = Locale('en', 'US');
+    } else {
+      ref.read(currentLocaleProvider.notifier).state = Locale('de', 'DE');
+    }
   }
 }

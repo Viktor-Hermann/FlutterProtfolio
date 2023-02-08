@@ -1,7 +1,7 @@
 import 'dart:ui';
 
-import 'package:easy_localization/easy_localization.dart';
 import 'package:web_app/domain/entities/feedback.dart';
+import 'package:web_app/generated/l10n.dart';
 
 List<Feedback> feedbacks = [
   Feedback(
@@ -9,7 +9,7 @@ List<Feedback> feedbacks = [
     name: "A. Bauer",
     role: 'Workmate',
     company: '>> progresso group GmbH',
-    review: 'feedbackABauer_eng'.tr(),
+    review: S.current.feedbackABauer,
     userPic: "assets/images/people.png",
     color: Color(0xFFFFF3DD),
   ),

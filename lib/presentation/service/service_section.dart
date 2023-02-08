@@ -1,5 +1,5 @@
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:web_app/generated/l10n.dart';
 import 'package:web_app/infrastructure/datasource/services_data.dart';
 import 'package:web_app/presentation/widgets/section_title.dart';
 import 'package:web_app/utils/constants.dart';
@@ -16,8 +16,8 @@ class ServiceSection extends StatelessWidget {
         children: [
           SectionTitle(
             color: Colors.grey[600],
-            title: 'serviceTitle'.tr(),
-            subTitle: 'serviceSubtitle'.tr(),
+            title: S.of(context).serviceTitle,
+            subTitle: S.of(context).serviceSubtitle,
           ),
           GridView.builder(
             shrinkWrap: true,

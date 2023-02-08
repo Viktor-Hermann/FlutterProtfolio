@@ -1,5 +1,5 @@
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:web_app/generated/l10n.dart';
 import 'package:web_app/infrastructure/datasource/recent_work_data.dart';
 import 'package:web_app/presentation/widgets/hireme_card.dart';
 import 'package:web_app/presentation/widgets/section_title.dart';
@@ -28,8 +28,8 @@ class RecentWorkSection extends StatelessWidget {
             child: HireMeCard(),
           ),
           SectionTitle(
-            title: 'myProjectTitle'.tr(),
-            subTitle: 'myProjectSubtitle'.tr(),
+            title: S.of(context).myProjectTitle,
+            subTitle: S.of(context).myProjectSubtitle,
           ),
           SizedBox(height: kDefaultPadding * 1.5),
           SizedBox(

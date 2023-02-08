@@ -1,5 +1,5 @@
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:web_app/generated/l10n.dart';
 
 import '../../../utils/constants.dart';
 
@@ -13,12 +13,12 @@ class _MenuHorizontalState extends State<MenuHorizontal> {
   int hoverIndex = 0;
   List<String> menuItems = [
     '',
-    'menuHome'.tr(),
-    'menuAboutMe'.tr(),
-    'menuServices'.tr(),
-    'menuMyProjects'.tr(),
-    'menuFeedback'.tr(),
-    'menuContact'.tr(),
+    S.current.menuHome,
+    S.current.menuAboutMe,
+    S.current.menuServices,
+    S.current.menuMyProjects,
+    S.current.menuFeedback,
+    S.current.menuContact,
     ''
   ];
   @override

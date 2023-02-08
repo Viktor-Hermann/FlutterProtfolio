@@ -1,5 +1,5 @@
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:web_app/generated/l10n.dart';
 import 'package:web_app/presentation/widgets/my_outline_button.dart';
 
 import '../../utils/constants.dart';
@@ -38,19 +38,19 @@ class HireMeCard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'startingNewProjectTitle'.tr(),
+                  S.of(context).startingNewProjectTitle,
                   style: TextStyle(fontSize: 42, fontWeight: FontWeight.bold),
                 ),
                 SizedBox(height: kDefaultPadding / 2),
                 Text(
-                  'startingNewProjectSubtitle'.tr(),
+                  S.of(context).startingNewProjectSubtitle,
                   style: TextStyle(fontWeight: FontWeight.w200),
                 )
               ],
             ),
           ),
           MyOutlineButton(
-            text: 'hireMeAction'.tr(),
+            text: S.of(context).hireMeAction,
             height: 80,
             imageSrc: "assets/images/hand.png",
             press: () {},

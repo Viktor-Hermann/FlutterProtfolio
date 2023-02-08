@@ -1,6 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:web_app/generated/l10n.dart';
 import 'package:web_app/infrastructure/datasource/feedback_data.dart';
 import 'package:web_app/presentation/widgets/section_title.dart';
 import 'package:web_app/utils/constants.dart';
@@ -16,7 +16,7 @@ class FeedbackSection extends StatelessWidget {
       child: Column(
         children: [
           SectionTitle(
-            title: 'feedbackTitle'.tr(),
+            title: S.of(context).feedbackTitle,
             subTitle: '',
           ),
           CarouselSlider.builder(

@@ -1,5 +1,5 @@
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:web_app/generated/l10n.dart';
 
 import '../../../utils/constants.dart';
 
@@ -21,14 +21,14 @@ class GlassContent extends StatelessWidget {
           children: [
             SizedBox(height: MediaQuery.of(context).size.height * 0.25),
             Text(
-              'upperSubTitle'.tr(),
+              S.of(context).upperSubTitle,
               style: Theme.of(context)
                   .textTheme
                   .headlineSmall
                   .copyWith(color: Colors.grey[700]),
             ),
             Text(
-              'nameTitle'.tr(),
+              S.of(context).nameTitle,
               style: TextStyle(
                 fontSize: 60,
                 fontWeight: FontWeight.bold,
@@ -38,7 +38,7 @@ class GlassContent extends StatelessWidget {
             ),
             SizedBox(height: 20),
             Text(
-              'bottomSubTitle'.tr(),
+              S.of(context).bottomSubTitle,
               style: Theme.of(context)
                   .textTheme
                   .headlineSmall
@@ -46,7 +46,7 @@ class GlassContent extends StatelessWidget {
             ),
             SizedBox(height: 50),
             Text(
-              'motto'.tr(),
+              S.of(context).motto,
               style: Theme.of(context).textTheme.headlineSmall.copyWith(
                   color: Colors.grey[700],
                   fontWeight: FontWeight.bold,

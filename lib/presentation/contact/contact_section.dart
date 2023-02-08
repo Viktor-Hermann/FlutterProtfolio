@@ -1,5 +1,5 @@
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:web_app/generated/l10n.dart';
 import 'package:web_app/presentation/widgets/my_outline_button.dart';
 import 'package:web_app/presentation/widgets/section_title.dart';
 import 'package:web_app/utils/constants.dart';
@@ -20,8 +20,8 @@ class ContactSection extends StatelessWidget {
       child: Column(
         children: [
           SectionTitle(
-            title: 'contactTitle'.tr(),
-            subTitle: 'contactSubtitle'.tr(),
+            title: S.of(context).contactTitle,
+            subTitle: S.of(context).contactSubtitle,
             color: Color(0xFF07E24A),
           ),
           ContactBox()
@@ -73,7 +73,7 @@ class ContactBox extends StatelessWidget {
           ),
           SizedBox(height: kDefaultPadding * 2),
           Text(
-            'contactMeQestionOrJob'.tr(),
+            S.of(context).contactMeQestionOrJob,
             style: Theme.of(context).textTheme.headlineSmall.copyWith(
                 color: Colors.grey[700],
                 fontWeight: FontWeight.bold,
@@ -81,7 +81,7 @@ class ContactBox extends StatelessWidget {
           ),
           SizedBox(height: kDefaultPadding),
           Text(
-            'contactMeRequest'.tr(),
+            S.of(context).contactMeRequest,
             style: Theme.of(context).textTheme.headlineSmall.copyWith(
                 color: Colors.grey[700],
                 fontWeight: FontWeight.w400,
@@ -112,8 +112,8 @@ class ContactForm extends StatelessWidget {
             child: TextFormField(
               onChanged: (value) {},
               decoration: InputDecoration(
-                labelText: 'contactFormName'.tr(),
-                hintText: 'contactFormNameHint'.tr(),
+                labelText: S.of(context).contactFormName,
+                hintText: S.of(context).contactFormNameHint,
               ),
             ),
           ),
@@ -122,8 +122,8 @@ class ContactForm extends StatelessWidget {
             child: TextFormField(
               onChanged: (value) {},
               decoration: InputDecoration(
-                labelText: 'contactFormEmail'.tr(),
-                hintText: 'contactFormEmailHint'.tr(),
+                labelText: S.of(context).contactFormEmail,
+                hintText: S.of(context).contactFormEmailHint,
               ),
             ),
           ),
@@ -132,8 +132,8 @@ class ContactForm extends StatelessWidget {
             child: TextFormField(
               onChanged: (value) {},
               decoration: InputDecoration(
-                labelText: 'contactFormProjectType'.tr(),
-                hintText: 'contactFormProjectTypeHint'.tr(),
+                labelText: S.of(context).contactFormProjectType,
+                hintText: S.of(context).contactFormProjectTypeHint,
               ),
             ),
           ),
@@ -142,8 +142,8 @@ class ContactForm extends StatelessWidget {
             child: TextFormField(
               onChanged: (value) {},
               decoration: InputDecoration(
-                labelText: 'contactFormBudget'.tr(),
-                hintText: 'contactFormBudgetHint'.tr(),
+                labelText: S.of(context).contactFormBudget,
+                hintText: S.of(context).contactFormBudgetHint,
               ),
             ),
           ),
@@ -153,8 +153,8 @@ class ContactForm extends StatelessWidget {
               textAlign: TextAlign.start,
               onChanged: (value) {},
               decoration: InputDecoration(
-                  labelText: 'contactFormDescription'.tr(),
-                  hintText: 'contactFormDescriptionHint'.tr(),
+                  labelText: S.of(context).contactFormDescription,
+                  hintText: S.of(context).contactFormDescriptionHint,
                   alignLabelWithHint: true),
             ),
           ),

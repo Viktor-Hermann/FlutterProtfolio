@@ -1,5 +1,5 @@
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:web_app/generated/l10n.dart';
 
 import '../../../utils/constants.dart';
 
@@ -20,12 +20,12 @@ class AboutTextWithSign extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Text(
-                'aboutMeShort'.tr(),
+                S.of(context).aboutMeShort,
                 style: TextStyle(
                     fontWeight: FontWeight.w200, color: Color(0xFF304481)),
               ),
               Text(
-                'aboutMeTitle'.tr(),
+                S.of(context).aboutMeTitle,
                 style: Theme.of(context).textTheme.displayMedium.copyWith(
                     fontWeight: FontWeight.bold, color: Color(0xFF304481)),
               )
