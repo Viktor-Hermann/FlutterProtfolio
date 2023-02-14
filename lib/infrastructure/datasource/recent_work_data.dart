@@ -25,6 +25,13 @@ List<RecentWork> recentWorks = [
   ),
   RecentWork(
     id: 4,
+    appTitle: "Flutter Web Portfolio ",
+    client: "VApps-IT",
+    image: "assets/images/hegla.gif",
+    edgeinsets: const EdgeInsets.all(8.0),
+  ),
+  RecentWork(
+    id: 5,
     appTitle: "More will come soon...",
     client: "Own projects",
     image: "assets/images/working_hard.gif",
