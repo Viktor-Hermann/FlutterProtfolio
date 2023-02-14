@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:web_app/generated/l10n.dart';
 import 'package:web_app/presentation/widgets/my_outline_button.dart';
+import 'package:web_app/utils/platform_shortcut_starter.dart';
 
 import '../../utils/constants.dart';
 
@@ -13,7 +14,8 @@ class HireMeCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.all(kDefaultPadding * 2),
-      constraints: BoxConstraints(maxWidth: 1110),
+      constraints:
+          BoxConstraints(maxWidth: MediaQuery.of(context).size.width * 0.8),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(20),
@@ -53,7 +55,7 @@ class HireMeCard extends StatelessWidget {
             text: S.of(context).hireMeAction,
             height: 80,
             imageSrc: "assets/images/hand.png",
-            press: () {},
+            press: () async => await startEmailShortcut(context),
           )
         ],
       ),

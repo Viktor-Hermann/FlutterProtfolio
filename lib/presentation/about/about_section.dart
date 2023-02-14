@@ -14,7 +14,8 @@ class AboutSection extends StatelessWidget {
       alignment: Alignment.center,
       child: Container(
         margin: EdgeInsets.symmetric(vertical: kDefaultPadding * 2),
-        constraints: BoxConstraints(maxWidth: 1110),
+        constraints:
+            BoxConstraints(maxWidth: MediaQuery.of(context).size.width * 0.8),
         color: Colors.white,
         child: Column(
           children: [
