@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:web_app/generated/l10n.dart';
 import 'package:web_app/presentation/widgets/my_outline_button.dart';
-import 'package:web_app/utils/platform_shortcut_starter.dart';
+import 'package:web_app/utils/shortcut_starter.dart';
 
 import '../../utils/constants.dart';
 

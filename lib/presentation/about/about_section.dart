@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'package:web_app/generated/l10n.dart';
 import 'package:web_app/presentation/widgets/my_outline_button.dart';
 import 'package:web_app/utils/constants.dart';
-import 'package:web_app/utils/platform_shortcut_starter.dart';
+import 'package:web_app/utils/shortcut_starter.dart';
 
 import 'widgets/about_section_text.dart';
 import 'widgets/about_text_with_sign.dart';
@@ -149,13 +150,19 @@ class AboutSection extends StatelessWidget {
                 MyOutlineButton(
                   imageSrc: "assets/images/download.png",
                   text: S.of(context).downloadCvAction,
-                  press: () {},
+                  press: () async {
+                    final Locale appLocale = Localizations.localeOf(context);
+                    await startUrlShortcut(
+                        link: appLocale.languageCode == 'en'
+                            ? 'https://drive.google.com/file/d/1UmJZkQlf1nOQa_Mp1pIcZSldyK0SoJFa/view?usp=share_link'
+                            : 'https://drive.google.com/file/d/1A59RiMLjp4gAhd8DFjEzOCwi10kUgqXl/view?usp=share_link');
+                  },
                 ),
                 SizedBox(width: kDefaultPadding * 5),
                 MyOutlineButton(
                   imageSrc: "assets/images/hand.png",
                   text: S.of(context).hireMeAction,
-                  press: () async => await startEmailShortcut(context),
+                  press: () async => startUrlShortcut,
                 ),
               ],
             ),
