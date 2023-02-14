@@ -145,10 +145,10 @@ class S {
     );
   }
 
-  /// `Passioned Flutter Mobile App Developer`
+  /// `Freelance - Flutter Mobile App Developer`
   String get bottomSubTitle {
     return Intl.message(
-      'Passioned Flutter Mobile App Developer',
+      'Freelance - Flutter Mobile App Developer',
       name: 'bottomSubTitle',
       desc: '',
       args: [],
@@ -170,6 +170,16 @@ class S {
     return Intl.message(
       'You never lose. You either win or you learn.',
       name: 'motto',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `- Nelson Mandela `
+  String get nelsonMandela {
+    return Intl.message(
+      '- Nelson Mandela ',
+      name: 'nelsonMandela',
       desc: '',
       args: [],
     );

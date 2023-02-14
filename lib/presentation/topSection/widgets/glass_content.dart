@@ -44,13 +44,21 @@ class GlassContent extends StatelessWidget {
                   .headlineSmall
                   .copyWith(color: Colors.grey[700]),
             ),
-            SizedBox(height: 50),
+            SizedBox(height: 42),
             Text(
-              S.of(context).motto,
+              '"${S.of(context).motto}"',
               style: Theme.of(context).textTheme.headlineSmall.copyWith(
                   color: Colors.grey[700],
                   fontWeight: FontWeight.bold,
                   fontSize: 26),
+            ),
+            SizedBox(height: 12),
+            Text(
+              S.of(context).nelsonMandela,
+              style: Theme.of(context).textTheme.headlineSmall.copyWith(
+                  color: Colors.grey[700],
+                  fontWeight: FontWeight.w200,
+                  fontSize: 14),
             ),
           ],
         ),
