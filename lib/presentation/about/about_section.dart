@@ -8,6 +8,9 @@ import 'widgets/about_text_with_sign.dart';
 import 'widgets/experience_card.dart';
 
 class AboutSection extends StatelessWidget {
+  const AboutSection({
+    Key key,
+  }) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Align(

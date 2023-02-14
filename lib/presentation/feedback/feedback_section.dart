@@ -8,6 +8,9 @@ import 'package:web_app/utils/constants.dart';
 import 'widgets/feedback_card.dart';
 
 class FeedbackSection extends StatelessWidget {
+  const FeedbackSection({
+    Key key,
+  }) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Container(

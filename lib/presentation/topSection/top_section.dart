@@ -8,6 +8,9 @@ import 'widgets/menu_horizontal.dart';
 import 'widgets/person_pic.dart';
 
 class TopSection extends StatelessWidget {
+  const TopSection({
+    Key key,
+  }) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Container(

@@ -3,10 +3,8 @@ import 'package:web_app/generated/l10n.dart';
 
 import '../../../utils/constants.dart';
 
-class MenuHorizontal extends StatefulWidget {
-  @override
-  _MenuHorizontalState createState() => _MenuHorizontalState();
-}
+class MenuHorizontal extends ConsumerWidget {
+  const MenuHorizontal({Key key}) : super(key: key);
 
 class _MenuHorizontalState extends State<MenuHorizontal> {
   int selectedIndex = 0;

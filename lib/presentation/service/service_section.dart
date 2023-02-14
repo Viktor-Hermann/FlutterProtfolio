@@ -7,6 +7,9 @@ import 'package:web_app/utils/constants.dart';
 import 'widgets/service_card.dart';
 
 class ServiceSection extends StatelessWidget {
+  const ServiceSection({
+    Key key,
+  }) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Container(
