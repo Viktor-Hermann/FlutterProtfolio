@@ -32,11 +32,11 @@ class HomeScreen extends ConsumerWidget {
       floatingActionButton: AnimatedOpacity(
         opacity: floatingButtonVisibility ? 1.0 : 0.0,
         curve: Curves.fastOutSlowIn,
-        duration: Duration(milliseconds: 500),
+        duration: Duration(milliseconds: 400),
         child: FloatingActionButton(
           onPressed: () {
             Scrollable.ensureVisible(menuKeys[0].currentContext,
-                duration: Duration(milliseconds: 400));
+                duration: Duration(milliseconds: 650));
           },
           backgroundColor: Color(0xFF304481),
           child: Icon(Icons.arrow_upward),
