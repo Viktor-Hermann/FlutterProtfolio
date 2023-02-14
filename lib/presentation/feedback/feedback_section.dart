@@ -13,6 +13,7 @@ class FeedbackSection extends StatelessWidget {
   }) : super(key: key);
   @override
   Widget build(BuildContext context) {
+    final feedbacks = FeedbackData().getFeedbacks(context);
     return Container(
       padding: EdgeInsets.symmetric(vertical: kDefaultPadding * 2.5),
       constraints: BoxConstraints(maxWidth: MediaQuery.of(context).size.width),
@@ -20,14 +21,14 @@ class FeedbackSection extends StatelessWidget {
         children: [
           SectionTitle(
             title: S.of(context).feedbackTitle,
-            subTitle: '',
+            subTitle: S.of(context).feedbackSubtitle,
           ),
           CarouselSlider.builder(
             options: CarouselOptions(
               height: 364.0,
               enableInfiniteScroll: true,
               autoPlay: true,
-              autoPlayInterval: Duration(seconds: 5),
+              autoPlayInterval: Duration(seconds: 8),
               animateToClosest: true,
               autoPlayCurve: Curves.fastOutSlowIn,
             ),

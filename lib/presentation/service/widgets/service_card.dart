@@ -20,13 +20,14 @@ class _ServiceCardState extends State<ServiceCard> {
   Duration duration = Duration(milliseconds: 200);
   @override
   Widget build(BuildContext context) {
+    final serviceData = ServicesData();
     return AnimatedContainer(
       duration: duration,
       margin: EdgeInsets.symmetric(vertical: kDefaultPadding * 2),
       height: 256,
       width: 256,
       decoration: BoxDecoration(
-        color: services[widget.index].color,
+        color: serviceData.getServices(context)[widget.index].color,
         borderRadius: BorderRadius.circular(10),
         boxShadow: [if (isHover) kDefaultCardShadow],
       ),
@@ -51,7 +52,7 @@ class _ServiceCardState extends State<ServiceCard> {
               ],
             ),
             child: Image.asset(
-              services[widget.index].image,
+              serviceData.getServices(context)[widget.index].image,
               fit: BoxFit.fill,
             ),
           ),
@@ -59,7 +60,7 @@ class _ServiceCardState extends State<ServiceCard> {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 8.0),
             child: Text(
-              services[widget.index].title,
+              serviceData.getServices(context)[widget.index].title,
               style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
               textAlign: TextAlign.center,
             ),

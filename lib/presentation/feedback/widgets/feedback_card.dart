@@ -20,8 +20,8 @@ class _FeedbackCardState extends State<FeedbackCard> {
   bool isHover = false;
   @override
   Widget build(BuildContext context) {
+    final feedbacks = FeedbackData().getFeedbacks(context);
     final feedback = feedbacks[widget.index];
-
     return AnimatedContainer(
       duration: duration,
       margin: EdgeInsets.only(top: kDefaultPadding * 3),
@@ -43,7 +43,16 @@ class _FeedbackCardState extends State<FeedbackCard> {
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
                 border: Border.all(color: Colors.white, width: 10),
-                image: DecorationImage(image: AssetImage(feedback.userPic)),
+              ),
+              child: ClipOval(
+                child: FadeInImage.assetNetwork(
+                  placeholder: 'assets/images/profile.png',
+                  image: feedback.userPic,
+                  fadeInDuration: const Duration(milliseconds: 2000),
+                  fadeOutDuration: const Duration(milliseconds: 800),
+                  height: 100,
+                  fadeInCurve: Curves.fastOutSlowIn,
+                ),
               ),
             ),
           ),
