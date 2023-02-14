@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-class Feedback {
+class CustomFeedback {
   final String name, review, userPic, role, company;
   final int id;
   final Color color;
 
-  Feedback(
+  CustomFeedback(
       {this.name,
       this.review,
       this.userPic,
