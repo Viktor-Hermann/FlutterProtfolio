@@ -1,8 +1,11 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:web_app/application/contact/contact_controller.dart';
 import 'package:web_app/generated/l10n.dart';
 import 'package:web_app/presentation/widgets/my_outline_button.dart';
 import 'package:web_app/presentation/widgets/section_title.dart';
 import 'package:web_app/utils/constants.dart';
+import 'package:web_app/utils/platform_shortcut_starter.dart';
 
 import 'widgets/socal_card.dart';
 
@@ -44,7 +47,8 @@ class ContactBox extends StatelessWidget {
     return Container(
       constraints:
           BoxConstraints(maxWidth: MediaQuery.of(context).size.width * 0.5),
-      margin: EdgeInsets.only(top: kDefaultPadding),
+      margin:
+          EdgeInsets.only(top: kDefaultPadding, bottom: kDefaultPadding * 3),
       padding: EdgeInsets.all(kDefaultPadding * 3),
       decoration: BoxDecoration(
         color: Colors.white,
@@ -57,24 +61,6 @@ class ContactBox extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              SocalCard(
-                iconSrc: "assets/images/whatsapp.png",
-                press: () {},
-              ),
-              SocalCard(
-                iconSrc: "assets/images/linkedin.png",
-                press: () {},
-              ),
-              SocalCard(
-                iconSrc: "assets/images/telephone.png",
-                press: () {},
-              ),
-            ],
-          ),
-          SizedBox(height: kDefaultPadding * 2),
           Text(
             S.of(context).contactMeQestionOrJob,
             style: Theme.of(context).textTheme.headlineSmall.copyWith(
@@ -84,14 +70,69 @@ class ContactBox extends StatelessWidget {
           ),
           SizedBox(height: kDefaultPadding),
           Text(
-            S.of(context).contactMeRequest,
+            S.of(context).contactMeInstantRequest,
             style: Theme.of(context).textTheme.headlineSmall.copyWith(
                 color: Colors.grey[700],
                 fontWeight: FontWeight.w400,
                 fontSize: 22),
           ),
+          SizedBox(height: kDefaultPadding),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              SocalCard(
+                iconSrc: "assets/images/telephone.png",
+                press: () async {
+                  if (defaultTargetPlatform == TargetPlatform.iOS ||
+                      defaultTargetPlatform == TargetPlatform.android) {
+                    await startPhoneShortcut();
+                  } else {
+                    await showQrAlertDialog(context: context);
+                  }
+                },
+              ),
+              SocalCard(
+                iconSrc: "assets/images/whatsapp.png",
+                press: () async => await startUrlShortcut(
+                    link: 'https://wa.me/message/SA6LW4CGBJ42L1'),
+              ),
+              SocalCard(
+                iconSrc: "assets/images/mail.png",
+                press: () async => await startEmailShortcut(context),
+              ),
+            ],
+          ),
           SizedBox(height: kDefaultPadding * 2),
-          ContactForm(),
+          Text(
+            S.of(context).contactMeSocialMediaRequest,
+            style: Theme.of(context).textTheme.headlineSmall.copyWith(
+                color: Colors.grey[700],
+                fontWeight: FontWeight.w400,
+                fontSize: 22),
+          ),
+          SizedBox(height: kDefaultPadding),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              SocalCard(
+                iconSrc: "assets/images/facebook.png",
+                press: () async => await startUrlShortcut(
+                    link:
+                        'https://www.facebook.com/people/VApps-IT/100089815770981/'),
+              ),
+              SocalCard(
+                  iconSrc: "assets/images/xing.png",
+                  press: () async => await startUrlShortcut(
+                      link:
+                          'https://www.xing.com/profile/Viktor_Hermann22/cv')),
+              SocalCard(
+                iconSrc: "assets/images/linkedin.png",
+                press: () async => await startUrlShortcut(
+                    link:
+                        'https://www.linkedin.com/in/viktor-hermann-103125245/'),
+              ),
+            ],
+          ),
         ],
       ),
     );
@@ -166,7 +207,7 @@ class ContactForm extends StatelessWidget {
             child: FittedBox(
               child: MyOutlineButton(
                 imageSrc: "assets/images/send.png",
-                text: "Send request!",
+                text: S.of(context).contactSend,
                 press: () {},
               ),
             ),
