@@ -12,6 +12,7 @@ class ServiceSection extends StatelessWidget {
   }) : super(key: key);
   @override
   Widget build(BuildContext context) {
+    final serviceData = ServicesData();
     return Container(
       margin: EdgeInsets.symmetric(vertical: kDefaultPadding * 2),
       constraints:
@@ -26,7 +27,7 @@ class ServiceSection extends StatelessWidget {
           GridView.builder(
             shrinkWrap: true,
             physics: NeverScrollableScrollPhysics(),
-            itemCount: services.length,
+            itemCount: serviceData.getServices(context).length,
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 4,
               childAspectRatio: 1.0,
