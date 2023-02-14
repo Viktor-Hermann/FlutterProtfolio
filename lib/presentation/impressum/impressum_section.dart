@@ -36,11 +36,18 @@ class ImpressumSection extends StatelessWidget {
                           maxHeight: MediaQuery.of(context).size.height * 0.5),
                       child: Image.asset("assets/images/person.png"),
                     ),
+                    SizedBox(
+                      height: kDefaultPadding,
+                    ),
                     Text(S.of(context).impressumAdress,
                         style: TextStyle(
                             fontWeight: FontWeight.bold,
                             color: kTextColor,
                             height: 2)),
+                    Image.asset(
+                      "assets/images/brandmark-design.png",
+                      height: 100,
+                    ),
                     Text('Viktor Hermann',
                         style: TextStyle(
                             fontWeight: FontWeight.w200,
