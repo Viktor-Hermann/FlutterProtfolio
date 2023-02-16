@@ -175,6 +175,16 @@ class S {
     );
   }
 
+  /// `You never lose.\n  You either win or  \n  you learn.`
+  String get mottoBreaked {
+    return Intl.message(
+      'You never lose.\n  You either win or  \n  you learn.',
+      name: 'mottoBreaked',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `- Nelson Mandela `
   String get nelsonMandela {
     return Intl.message(
@@ -240,6 +250,26 @@ class S {
     return Intl.message(
       'Download CV',
       name: 'downloadCvAction',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Arrange cooperation!`
+  String get hireMeActionBreaked {
+    return Intl.message(
+      'Arrange cooperation!',
+      name: 'hireMeActionBreaked',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Download CV`
+  String get downloadCvActionBreaked {
+    return Intl.message(
+      'Download CV',
+      name: 'downloadCvActionBreaked',
       desc: '',
       args: [],
     );

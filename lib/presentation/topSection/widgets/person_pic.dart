@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
 
 class PersonPic extends StatelessWidget {
   const PersonPic({
@@ -8,9 +9,8 @@ class PersonPic extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      constraints: BoxConstraints(
-          maxWidth: MediaQuery.of(context).size.width,
-          maxHeight: MediaQuery.of(context).size.height),
+      constraints:
+          BoxConstraints(maxWidth: Adaptive.w(40), maxHeight: Adaptive.h(85)),
       child: Image.asset("assets/images/person.png"),
     );
   }

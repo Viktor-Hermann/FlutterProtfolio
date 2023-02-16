@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import '../../utils/constants.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
 
 class SectionTitle extends StatelessWidget {
   const SectionTitle({
@@ -16,10 +15,7 @@ class SectionTitle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.symmetric(vertical: kDefaultPadding),
-      constraints:
-          BoxConstraints(maxWidth: MediaQuery.of(context).size.width * 0.8),
-      height: 100,
+      margin: EdgeInsets.symmetric(vertical: 0),
       child: Align(
         alignment: Alignment.centerLeft,
         child: Column(
@@ -29,12 +25,16 @@ class SectionTitle extends StatelessWidget {
             Text(
               subTitle,
               style: TextStyle(
-                  fontWeight: FontWeight.w200, color: Color(0xFF304481)),
+                  fontWeight: FontWeight.w500,
+                  color: Color(0xFF304481),
+                  fontSize: Adaptive.sp(12)),
             ),
             Text(
               title,
               style: Theme.of(context).textTheme.displayMedium.copyWith(
-                  fontWeight: FontWeight.bold, color: Color(0xFF304481)),
+                  fontWeight: FontWeight.bold,
+                  color: Color(0xFF304481),
+                  fontSize: Adaptive.sp(20)),
             )
           ],
         ),

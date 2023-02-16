@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:web_app/generated/l10n.dart';
 import 'package:web_app/presentation/widgets/section_title.dart';
 import 'package:web_app/utils/constants.dart';
@@ -10,9 +11,9 @@ class ImpressumSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.symmetric(vertical: kDefaultPadding * 2),
-      constraints:
-          BoxConstraints(maxWidth: MediaQuery.of(context).size.width * 0.8),
+      margin: EdgeInsets.symmetric(
+          vertical: Adaptive.h(4), horizontal: Adaptive.w(5)),
+      constraints: BoxConstraints(maxWidth: Adaptive.w(90)),
       color: Colors.white,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
@@ -30,70 +31,76 @@ class ImpressumSection extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Container(
-                      margin: EdgeInsets.only(bottom: 50),
+                      margin: EdgeInsets.only(bottom: Adaptive.h(5)),
                       constraints: BoxConstraints(
-                          maxWidth: MediaQuery.of(context).size.width * 0.6,
-                          maxHeight: MediaQuery.of(context).size.height * 0.5),
-                      child: Image.asset("assets/images/person.png"),
+                          maxWidth: Adaptive.w(50), maxHeight: Adaptive.h(50)),
+                      child: Image.asset(
+                        "assets/images/person.png",
+                        height: Adaptive.h(30),
+                        width: Adaptive.w(30),
+                      ),
                     ),
-                    SizedBox(
-                      height: kDefaultPadding,
-                    ),
+                    SizedBox(height: Adaptive.h(3)),
                     Text(S.of(context).impressumAdress,
                         style: TextStyle(
                             fontWeight: FontWeight.bold,
                             color: kTextColor,
+                            fontSize: Adaptive.sp(13),
                             height: 2)),
                     Image.asset(
                       "assets/images/brandmark-design.png",
-                      height: 100,
+                      height: Adaptive.h(5),
                     ),
                     Text('Viktor Hermann',
                         style: TextStyle(
-                            fontWeight: FontWeight.w200,
+                            fontWeight: FontWeight.w500,
                             color: kTextColor,
+                            fontSize: Adaptive.sp(12),
                             height: 2)),
                     Text('Oststr. 6',
                         style: TextStyle(
-                            fontWeight: FontWeight.w200,
+                            fontWeight: FontWeight.w500,
                             color: kTextColor,
+                            fontSize: Adaptive.sp(12),
                             height: 2)),
                     Text('33813 Oerlinghausen',
                         style: TextStyle(
-                            fontWeight: FontWeight.w200,
+                            fontWeight: FontWeight.w500,
                             color: kTextColor,
+                            fontSize: Adaptive.sp(12),
                             height: 2)),
-                    SizedBox(
-                      height: kDefaultPadding,
-                    ),
+                    SizedBox(height: Adaptive.h(3)),
                     Text(S.of(context).impressumContact,
                         style: TextStyle(
                             fontWeight: FontWeight.bold,
                             color: kTextColor,
+                            fontSize: Adaptive.sp(13),
                             height: 2)),
                     Text('${S.of(context).impressumPhone} 01234-789456',
                         style: TextStyle(
-                            fontWeight: FontWeight.w200,
+                            fontWeight: FontWeight.w500,
                             color: kTextColor,
+                            fontSize: Adaptive.sp(12),
                             height: 2)),
                     Text(
                         '${S.of(context).impressumEmail}: v.hermann.it@gmail.com',
                         style: TextStyle(
-                            fontWeight: FontWeight.w200,
+                            fontWeight: FontWeight.w500,
                             color: kTextColor,
+                            fontSize: Adaptive.sp(12),
                             height: 2)),
-                    SizedBox(
-                      height: kDefaultPadding,
-                    ),
+                    SizedBox(height: Adaptive.h(3)),
                     Text(S.of(context).impressumUstIdNrTitle,
                         style: TextStyle(
                             fontWeight: FontWeight.bold,
                             color: kTextColor,
+                            fontSize: Adaptive.sp(13),
                             height: 2)),
                     Text('DE354056169',
                         style: TextStyle(
-                            fontWeight: FontWeight.w200,
+                            fontWeight: FontWeight.w500,
                             color: kTextColor,
+                            fontSize: Adaptive.sp(12),
                             height: 2)),
                   ],
                 ),
@@ -106,55 +113,53 @@ class ImpressumSection extends StatelessWidget {
                         style: TextStyle(
                             fontWeight: FontWeight.bold,
                             color: kTextColor,
+                            fontSize: Adaptive.sp(14),
                             height: 2)),
-                    SizedBox(
-                      height: kDefaultPadding,
-                    ),
+                    SizedBox(height: Adaptive.h(3)),
                     Text(S.of(context).impressumLinks,
                         style: TextStyle(
                             fontWeight: FontWeight.bold,
                             color: kTextColor,
+                            fontSize: Adaptive.sp(13),
                             height: 2)),
                     Text(S.of(context).impressumLinksText,
                         style: TextStyle(
-                            fontWeight: FontWeight.w200,
+                            fontWeight: FontWeight.w500,
                             color: kTextColor,
-                            fontSize: 12,
+                            fontSize: Adaptive.sp(10),
                             height: 2)),
-                    SizedBox(
-                      height: kDefaultPadding,
-                    ),
+                    SizedBox(height: Adaptive.h(3)),
                     Text(S.of(context).impressumPrivacy,
                         style: TextStyle(
                             fontWeight: FontWeight.bold,
                             color: kTextColor,
+                            fontSize: Adaptive.sp(13),
                             height: 2)),
                     Text(S.of(context).impressumPrivacyText,
                         style: TextStyle(
-                            fontWeight: FontWeight.w200,
+                            fontWeight: FontWeight.w500,
                             color: kTextColor,
-                            fontSize: 12,
+                            fontSize: Adaptive.sp(10),
                             height: 2)),
-                    SizedBox(
-                      height: kDefaultPadding,
-                    ),
+                    SizedBox(height: Adaptive.h(3)),
                     Text(S.of(context).impressumGLytics,
                         style: TextStyle(
                             fontWeight: FontWeight.bold,
                             color: kTextColor,
+                            fontSize: Adaptive.sp(13),
                             height: 2)),
                     Text(S.of(context).impressumGLyticsText,
                         style: TextStyle(
-                            fontWeight: FontWeight.w200,
+                            fontWeight: FontWeight.w500,
                             color: kTextColor,
-                            fontSize: 12,
+                            fontSize: Adaptive.sp(10),
                             height: 2)),
                   ],
                 ),
               ),
             ],
           ),
-          SizedBox(height: kDefaultPadding * 3),
+          SizedBox(height: Adaptive.h(12)),
         ],
       ),
     );

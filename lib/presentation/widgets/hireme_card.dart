@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:web_app/generated/l10n.dart';
 import 'package:web_app/presentation/widgets/my_outline_button.dart';
 import 'package:web_app/utils/shortcut_starter.dart';
@@ -13,9 +14,8 @@ class HireMeCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(kDefaultPadding * 2),
-      constraints:
-          BoxConstraints(maxWidth: MediaQuery.of(context).size.width * 0.8),
+      padding: EdgeInsets.all(Adaptive.h(2)),
+      constraints: BoxConstraints(maxWidth: Adaptive.w(90)),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(20),
@@ -25,13 +25,13 @@ class HireMeCard extends StatelessWidget {
         children: [
           Image.asset(
             "assets/images/email.png",
-            height: 80,
-            width: 80,
+            height: Adaptive.h(10),
+            width: Adaptive.w(10),
           ),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: kDefaultPadding),
+            padding: EdgeInsets.symmetric(horizontal: Adaptive.w(1)),
             child: SizedBox(
-              height: 80,
+              height: Adaptive.h(8),
               child: VerticalDivider(),
             ),
           ),
@@ -41,19 +41,20 @@ class HireMeCard extends StatelessWidget {
               children: [
                 Text(
                   S.of(context).startingNewProjectTitle,
-                  style: TextStyle(fontSize: 42, fontWeight: FontWeight.bold),
+                  style: TextStyle(
+                      fontSize: Adaptive.sp(16), fontWeight: FontWeight.bold),
                 ),
-                SizedBox(height: kDefaultPadding / 2),
+                SizedBox(height: Adaptive.h(2)),
                 Text(
                   S.of(context).startingNewProjectSubtitle,
-                  style: TextStyle(fontWeight: FontWeight.w200),
+                  style: TextStyle(
+                      fontWeight: FontWeight.w500, fontSize: Adaptive.sp(12)),
                 )
               ],
             ),
           ),
           MyOutlineButton(
             text: S.of(context).hireMeAction,
-            height: 80,
             imageSrc: "assets/images/hand.png",
             press: () async => await startEmailShortcut(context),
           )

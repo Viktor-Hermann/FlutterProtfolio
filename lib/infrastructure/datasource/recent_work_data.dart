@@ -27,7 +27,7 @@ List<RecentWork> recentWorks = [
     id: 4,
     appTitle: "Flutter Web Portfolio ",
     client: "VApps-IT",
-    image: "assets/images/hegla.gif",
+    image: "assets/images/web_portfolio.gif",
     edgeinsets: const EdgeInsets.all(8.0),
   ),
   RecentWork(

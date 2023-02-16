@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
 
-class SocalCard extends StatefulWidget {
+class SocalCard extends StatelessWidget {
   const SocalCard({
     Key key,
     this.iconSrc,
@@ -11,29 +12,18 @@ class SocalCard extends StatefulWidget {
   final Function press;
 
   @override
-  _SocalCardState createState() => _SocalCardState();
-}
-
-class _SocalCardState extends State<SocalCard> {
-  bool isHover = false;
-  @override
   Widget build(BuildContext context) {
     return FittedBox(
       child: InkWell(
-        onTap: widget.press,
-        onHover: (value) {
-          setState(() {
-            isHover = value;
-          });
-        },
+        onTap: press,
         child: AnimatedContainer(
           duration: Duration(milliseconds: 200),
           child: Row(
             children: [
               Image.asset(
-                widget.iconSrc,
-                height: 80,
-                width: 80,
+                iconSrc,
+                height: Adaptive.h(10),
+                width: Adaptive.w(10),
               ),
             ],
           ),

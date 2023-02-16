@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:web_app/generated/l10n.dart';
+import 'package:web_app/utils/responsive.dart';
 
 import '../../../utils/constants.dart';
 
@@ -16,8 +18,8 @@ class ExperienceCard extends StatelessWidget {
     return Container(
       margin: EdgeInsets.symmetric(horizontal: kDefaultPadding),
       padding: EdgeInsets.all(kDefaultPadding),
-      height: 240,
-      width: 255,
+      height: Adaptive.h(isDesktopScreen ? 38 : 20),
+      width: Adaptive.w(isDesktopScreen ? 24 : 45),
       child: DecoratedBox(
         decoration: BoxDecoration(
           color: Color(0xFF304479).withOpacity(0.8),
@@ -31,7 +33,7 @@ class ExperienceCard extends StatelessWidget {
                 Text(
                   numOfExp,
                   style: TextStyle(
-                    fontSize: 100,
+                    fontSize: Adaptive.sp(30),
                     fontWeight: FontWeight.bold,
                     foreground: Paint()
                       ..style = PaintingStyle.stroke
@@ -50,7 +52,7 @@ class ExperienceCard extends StatelessWidget {
                   numOfExp,
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
-                    fontSize: 100,
+                    fontSize: Adaptive.sp(30),
                     color: Colors.white,
                   ),
                 )
@@ -59,9 +61,7 @@ class ExperienceCard extends StatelessWidget {
             SizedBox(height: kDefaultPadding / 2),
             Text(
               S.of(context).experienceYearTitle,
-              style: TextStyle(
-                color: Colors.white,
-              ),
+              style: TextStyle(color: Colors.white, fontSize: Adaptive.sp(12)),
             )
           ],
         ),

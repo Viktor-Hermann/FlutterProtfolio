@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
+
 import 'package:web_app/generated/l10n.dart';
 import 'package:web_app/presentation/widgets/my_outline_button.dart';
 import 'package:web_app/utils/constants.dart';
+import 'package:web_app/utils/responsive.dart';
 import 'package:web_app/utils/shortcut_starter.dart';
 
 import 'widgets/about_section_text.dart';
@@ -18,16 +20,28 @@ class AboutSection extends StatelessWidget {
     return Align(
       alignment: Alignment.center,
       child: Container(
-        margin: EdgeInsets.symmetric(vertical: kDefaultPadding * 2),
-        constraints:
-            BoxConstraints(maxWidth: MediaQuery.of(context).size.width * 0.8),
+        margin: EdgeInsets.symmetric(vertical: Adaptive.h(6)),
+        constraints: BoxConstraints(maxWidth: Adaptive.w(90)),
         color: Colors.white,
         child: Column(
           children: [
+            Visibility(
+              visible: !isDesktopScreen,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Padding(
+                    padding: EdgeInsets.only(bottom: Adaptive.w(8)),
+                    child: AboutTextWithSign(),
+                  ),
+                  ExperienceCard(numOfExp: S.of(context).experienceYear)
+                ],
+              ),
+            ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                AboutTextWithSign(),
+                isDesktopScreen ? AboutTextWithSign() : SizedBox(),
                 Expanded(
                   child: AboutSectionText(
                     richText: RichText(
@@ -37,8 +51,9 @@ class AboutSection extends StatelessWidget {
                           TextSpan(
                             text: S.of(context).aboutMeDescription,
                             style: TextStyle(
-                                fontWeight: FontWeight.w200,
+                                fontWeight: FontWeight.w500,
                                 color: kTextColor,
+                                fontSize: Adaptive.sp(12),
                                 height: 2),
                           ),
                           TextSpan(
@@ -46,13 +61,15 @@ class AboutSection extends StatelessWidget {
                             style: TextStyle(
                                 fontWeight: FontWeight.bold,
                                 color: kTextColor,
+                                fontSize: Adaptive.sp(12),
                                 height: 2),
                           ),
                           TextSpan(
                             text: S.of(context).aboutMeDescription_2,
                             style: TextStyle(
-                                fontWeight: FontWeight.w200,
+                                fontWeight: FontWeight.w500,
                                 color: kTextColor,
+                                fontSize: Adaptive.sp(12),
                                 height: 2),
                           ),
                           TextSpan(
@@ -60,20 +77,24 @@ class AboutSection extends StatelessWidget {
                             style: TextStyle(
                                 fontWeight: FontWeight.bold,
                                 color: kTextColor,
+                                fontSize: Adaptive.sp(12),
                                 height: 2),
                           ),
                           TextSpan(
                               text: S.of(context).aboutMeDescription_4,
                               style: TextStyle(
-                                  fontWeight: FontWeight.w200,
+                                  fontWeight: FontWeight.w500,
                                   color: kTextColor,
+                                  fontSize: Adaptive.sp(12),
                                   height: 2)),
                         ],
                       ),
                     ),
                   ),
                 ),
-                ExperienceCard(numOfExp: S.of(context).experienceYear),
+                isDesktopScreen
+                    ? ExperienceCard(numOfExp: S.of(context).experienceYear)
+                    : SizedBox(),
                 Expanded(
                   child: AboutSectionText(
                     richText: RichText(
@@ -83,8 +104,9 @@ class AboutSection extends StatelessWidget {
                           TextSpan(
                             text: S.of(context).experienceYearDescription,
                             style: TextStyle(
-                                fontWeight: FontWeight.w200,
+                                fontWeight: FontWeight.w500,
                                 color: kTextColor,
+                                fontSize: Adaptive.sp(12),
                                 height: 2),
                           ),
                           TextSpan(
@@ -92,19 +114,22 @@ class AboutSection extends StatelessWidget {
                             style: TextStyle(
                                 fontWeight: FontWeight.bold,
                                 color: kTextColor,
+                                fontSize: Adaptive.sp(12),
                                 height: 2),
                           ),
                           TextSpan(
                             text: S.of(context).experienceYearDescription_2,
                             style: TextStyle(
-                                fontWeight: FontWeight.w200,
+                                fontWeight: FontWeight.w500,
+                                fontSize: Adaptive.sp(12),
                                 color: kTextColor,
                                 height: 2),
                           ),
                           TextSpan(
                             text: S.of(context).experienceYearDescription_3,
                             style: TextStyle(
-                                fontWeight: FontWeight.w200,
+                                fontWeight: FontWeight.w500,
+                                fontSize: Adaptive.sp(12),
                                 color: kTextColor,
                                 height: 2),
                           ),
@@ -112,13 +137,15 @@ class AboutSection extends StatelessWidget {
                             text: S.of(context).experienceYearDescription_4,
                             style: TextStyle(
                                 fontWeight: FontWeight.bold,
+                                fontSize: Adaptive.sp(12),
                                 color: kTextColor,
                                 height: 2),
                           ),
                           TextSpan(
                             text: S.of(context).experienceYearDescription_5,
                             style: TextStyle(
-                                fontWeight: FontWeight.w200,
+                                fontWeight: FontWeight.w500,
+                                fontSize: Adaptive.sp(12),
                                 color: kTextColor,
                                 height: 2),
                           ),
@@ -126,13 +153,15 @@ class AboutSection extends StatelessWidget {
                             text: S.of(context).experienceYearDescription_6,
                             style: TextStyle(
                                 fontWeight: FontWeight.bold,
+                                fontSize: Adaptive.sp(12),
                                 color: kTextColor,
                                 height: 2),
                           ),
                           TextSpan(
                             text: S.of(context).experienceYearDescription_7,
                             style: TextStyle(
-                                fontWeight: FontWeight.w200,
+                                fontWeight: FontWeight.w500,
+                                fontSize: Adaptive.sp(12),
                                 color: kTextColor,
                                 height: 2),
                           ),
@@ -149,7 +178,9 @@ class AboutSection extends StatelessWidget {
               children: [
                 MyOutlineButton(
                   imageSrc: "assets/images/download.png",
-                  text: S.of(context).downloadCvAction,
+                  text: isDesktopScreen
+                      ? S.of(context).downloadCvAction
+                      : S.of(context).downloadCvActionBreaked,
                   press: () async {
                     final Locale appLocale = Localizations.localeOf(context);
                     await startUrlShortcut(
@@ -158,11 +189,13 @@ class AboutSection extends StatelessWidget {
                             : 'https://drive.google.com/file/d/1A59RiMLjp4gAhd8DFjEzOCwi10kUgqXl/view?usp=share_link');
                   },
                 ),
-                SizedBox(width: kDefaultPadding * 5),
+                SizedBox(width: Adaptive.w(12)),
                 MyOutlineButton(
                   imageSrc: "assets/images/hand.png",
-                  text: S.of(context).hireMeAction,
-                  press: () async => startUrlShortcut,
+                  text: isDesktopScreen
+                      ? S.of(context).hireMeAction
+                      : S.of(context).hireMeActionBreaked,
+                  press: () async => startEmailShortcut(context),
                 ),
               ],
             ),

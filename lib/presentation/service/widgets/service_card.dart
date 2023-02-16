@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:web_app/infrastructure/datasource/services_data.dart';
+import 'package:web_app/utils/responsive.dart';
 
 import '../../../utils/constants.dart';
 
@@ -23,48 +25,40 @@ class _ServiceCardState extends State<ServiceCard> {
     final serviceData = ServicesData();
     return AnimatedContainer(
       duration: duration,
-      margin: EdgeInsets.symmetric(vertical: kDefaultPadding * 2),
-      height: 256,
-      width: 256,
+      margin: EdgeInsets.symmetric(
+          vertical: Adaptive.h(2), horizontal: Adaptive.w(2)),
       decoration: BoxDecoration(
         color: serviceData.getServices(context)[widget.index].color,
         borderRadius: BorderRadius.circular(10),
-        boxShadow: [if (isHover) kDefaultCardShadow],
       ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           AnimatedContainer(
             duration: duration,
-            padding: EdgeInsets.all(kDefaultPadding * 1.0),
-            height: 100,
-            width: 100,
+            padding: EdgeInsets.all(Adaptive.h(isDesktopScreen ? 2 : 1)),
             decoration: BoxDecoration(
               color: Colors.white,
               shape: BoxShape.circle,
-              boxShadow: [
-                if (!isHover)
-                  BoxShadow(
-                    offset: Offset(0, 20),
-                    blurRadius: 30,
-                    color: Colors.black.withOpacity(0.1),
-                  ),
-              ],
             ),
             child: Image.asset(
               serviceData.getServices(context)[widget.index].image,
               fit: BoxFit.fill,
+              height: Adaptive.h(isDesktopScreen ? 10 : 5),
+              width: Adaptive.h(isDesktopScreen ? 10 : 5),
             ),
           ),
-          SizedBox(height: kDefaultPadding),
+          SizedBox(height: Adaptive.h(2)),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 8.0),
+            padding: EdgeInsets.symmetric(horizontal: Adaptive.w(2)),
             child: Text(
               serviceData.getServices(context)[widget.index].title,
-              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+              style: TextStyle(
+                  fontSize: Adaptive.sp(12), fontWeight: FontWeight.bold),
               textAlign: TextAlign.center,
             ),
           ),
+          SizedBox(height: Adaptive.h(2)),
         ],
       ),
     );

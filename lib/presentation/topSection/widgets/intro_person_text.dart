@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:web_app/application/topsection/home_controller.dart';
+import 'package:web_app/utils/responsive.dart';
 
 import 'glass_content.dart';
 
@@ -23,20 +25,22 @@ class IntroPersonText extends ConsumerWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: 36.0, vertical: 24.0),
-              child: FadeInImage.assetNetwork(
-                placeholder: 'assets/images/brandmark-design.png',
-                image: 'assets/images/brandmark-design.png',
-                fadeInDuration: const Duration(milliseconds: 2000),
-                fadeOutDuration: const Duration(milliseconds: 800),
-                height: 100,
-                fadeInCurve: Curves.fastOutSlowIn,
+              padding: EdgeInsets.symmetric(
+                  horizontal: Adaptive.w(4),
+                  vertical: Adaptive.h(isDesktopScreen ? 3 : 4)),
+              child: AnimatedOpacity(
+                opacity: 1,
+                duration: Duration(milliseconds: 500),
+                child: Image.asset("assets/images/brandmark-design.png",
+                    height: Adaptive.h(isDesktopScreen ? 12 : 5)),
               ),
             ),
             Align(
               alignment: Alignment.centerRight,
               child: Padding(
-                padding: const EdgeInsets.only(right: 36, bottom: 24),
+                padding: EdgeInsets.only(
+                    right: Adaptive.w(2),
+                    bottom: Adaptive.h(isDesktopScreen ? 3 : 0)),
                 child: InkWell(
                   onTap: () => homeController.changeLanguage(),
                   child: Opacity(
@@ -45,8 +49,8 @@ class IntroPersonText extends ConsumerWidget {
                       isLocaleDE
                           ? "assets/images/english.png"
                           : "assets/images/german.png",
-                      height: 48,
-                      width: 48,
+                      height: Adaptive.h(6),
+                      width: Adaptive.w(6),
                     ),
                   ),
                 ),

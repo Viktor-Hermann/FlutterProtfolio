@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:web_app/application/topsection/menu_controller.dart';
 
 import '../../../utils/constants.dart';
@@ -12,8 +13,8 @@ class MenuHorizontal extends ConsumerWidget {
     final menuItems = getMenuList(context);
     return Container(
       padding: EdgeInsets.symmetric(horizontal: kDefaultPadding),
-      width: MediaQuery.of(context).size.width,
-      height: 54,
+      width: Adaptive.w(100),
+      height: Adaptive.h(7),
       decoration: BoxDecoration(
         gradient: LinearGradient(
           begin: Alignment.topCenter,
@@ -50,14 +51,14 @@ Widget buildMenuItem(int index, WidgetRef ref) {
       menuController.onHover(value, index);
     },
     child: Container(
-      height: 100,
+      height: Adaptive.h(10),
       child: Stack(
         alignment: Alignment.center,
         fit: StackFit.loose,
         children: [
           Text(
             menuItems[index],
-            style: TextStyle(fontSize: 20, color: kTextColor),
+            style: TextStyle(fontSize: Adaptive.sp(13), color: kTextColor),
           ),
           // Hover
           AnimatedPositioned(

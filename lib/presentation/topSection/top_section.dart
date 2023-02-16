@@ -1,7 +1,8 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:web_app/utils/constants.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
+import 'package:web_app/utils/responsive.dart';
 
 import 'widgets/intro_person_text.dart';
 import 'widgets/menu_horizontal.dart';
@@ -15,7 +16,8 @@ class TopSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       alignment: Alignment.center,
-      constraints: BoxConstraints(maxHeight: 900, minHeight: 700),
+      constraints:
+          BoxConstraints(maxHeight: Adaptive.h(isDesktopScreen ? 90 : 52)),
       width: MediaQuery.of(context).size.width,
       decoration: BoxDecoration(
         image: DecorationImage(
@@ -26,10 +28,10 @@ class TopSection extends StatelessWidget {
       child: BackdropFilter(
         filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
         child: Container(
-          padding: EdgeInsets.symmetric(horizontal: kDefaultPadding * 2),
+          padding: EdgeInsets.symmetric(horizontal: Adaptive.w(1)),
           color: Colors.white.withOpacity(0),
           child: Container(
-            margin: EdgeInsets.only(top: kDefaultPadding),
+            margin: EdgeInsets.only(top: Adaptive.w(1)),
             child: Stack(
               children: [
                 IntroPersonText(),
@@ -38,9 +40,12 @@ class TopSection extends StatelessWidget {
                   right: 0,
                   child: PersonPic(),
                 ),
-                Positioned(
-                  bottom: 0,
-                  child: MenuHorizontal(),
+                Visibility(
+                  visible: isDesktopScreen,
+                  child: Positioned(
+                    bottom: 0,
+                    child: MenuHorizontal(),
+                  ),
                 ),
               ],
             ),

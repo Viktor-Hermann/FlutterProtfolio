@@ -1,10 +1,12 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:web_app/application/contact/contact_controller.dart';
 import 'package:web_app/generated/l10n.dart';
 import 'package:web_app/presentation/widgets/my_outline_button.dart';
 import 'package:web_app/presentation/widgets/section_title.dart';
 import 'package:web_app/utils/constants.dart';
+import 'package:web_app/utils/responsive.dart';
 import 'package:web_app/utils/shortcut_starter.dart';
 
 import 'widgets/socal_card.dart';
@@ -16,22 +18,26 @@ class ContactSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: MediaQuery.of(context).size.width,
+      width: Adaptive.w(100),
       decoration: BoxDecoration(
         image: DecorationImage(
           fit: BoxFit.cover,
           image: AssetImage("assets/images/contact_us.png"),
         ),
       ),
-      child: Column(
-        children: [
-          SectionTitle(
-            title: S.of(context).contactTitle,
-            subTitle: S.of(context).contactSubtitle,
-            color: Color(0xFF07E24A),
-          ),
-          ContactBox()
-        ],
+      child: Padding(
+        padding: EdgeInsets.symmetric(
+            vertical: Adaptive.h(6), horizontal: Adaptive.w(6)),
+        child: Column(
+          children: [
+            SectionTitle(
+              title: S.of(context).contactTitle,
+              subTitle: S.of(context).contactSubtitle,
+              color: Color(0xFF07E24A),
+            ),
+            ContactBox()
+          ],
+        ),
       ),
     );
   }
@@ -46,10 +52,9 @@ class ContactBox extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       constraints:
-          BoxConstraints(maxWidth: MediaQuery.of(context).size.width * 0.5),
-      margin:
-          EdgeInsets.only(top: kDefaultPadding, bottom: kDefaultPadding * 3),
-      padding: EdgeInsets.all(kDefaultPadding * 3),
+          BoxConstraints(maxWidth: Adaptive.w(isDesktopScreen ? 50 : 80)),
+      margin: EdgeInsets.only(top: Adaptive.h(4), bottom: Adaptive.h(4)),
+      padding: EdgeInsets.all(Adaptive.h(isDesktopScreen ? 9 : 6)),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.only(
@@ -66,17 +71,17 @@ class ContactBox extends StatelessWidget {
             style: Theme.of(context).textTheme.headlineSmall.copyWith(
                 color: Colors.grey[700],
                 fontWeight: FontWeight.bold,
-                fontSize: 26),
+                fontSize: Adaptive.sp(15)),
           ),
-          SizedBox(height: kDefaultPadding),
+          SizedBox(height: Adaptive.h(3)),
           Text(
             S.of(context).contactMeInstantRequest,
             style: Theme.of(context).textTheme.headlineSmall.copyWith(
                 color: Colors.grey[700],
                 fontWeight: FontWeight.w400,
-                fontSize: 22),
+                fontSize: Adaptive.sp(14)),
           ),
-          SizedBox(height: kDefaultPadding),
+          SizedBox(height: Adaptive.h(isDesktopScreen ? 6 : 4)),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -102,15 +107,15 @@ class ContactBox extends StatelessWidget {
               ),
             ],
           ),
-          SizedBox(height: kDefaultPadding * 2),
+          SizedBox(height: Adaptive.h(isDesktopScreen ? 6 : 4)),
           Text(
             S.of(context).contactMeSocialMediaRequest,
             style: Theme.of(context).textTheme.headlineSmall.copyWith(
                 color: Colors.grey[700],
                 fontWeight: FontWeight.w400,
-                fontSize: 22),
+                fontSize: Adaptive.sp(14)),
           ),
-          SizedBox(height: kDefaultPadding),
+          SizedBox(height: Adaptive.h(isDesktopScreen ? 6 : 4)),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -133,85 +138,6 @@ class ContactBox extends StatelessWidget {
               ),
             ],
           ),
-        ],
-      ),
-    );
-  }
-}
-
-class ContactForm extends StatelessWidget {
-  const ContactForm({
-    Key key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Form(
-      child: Wrap(
-        spacing: kDefaultPadding * 2.5,
-        runSpacing: kDefaultPadding * 1.5,
-        children: [
-          SizedBox(
-            width: 470,
-            child: TextFormField(
-              onChanged: (value) {},
-              decoration: InputDecoration(
-                labelText: S.of(context).contactFormName,
-                hintText: S.of(context).contactFormNameHint,
-              ),
-            ),
-          ),
-          SizedBox(
-            width: 470,
-            child: TextFormField(
-              onChanged: (value) {},
-              decoration: InputDecoration(
-                labelText: S.of(context).contactFormEmail,
-                hintText: S.of(context).contactFormEmailHint,
-              ),
-            ),
-          ),
-          SizedBox(
-            width: 470,
-            child: TextFormField(
-              onChanged: (value) {},
-              decoration: InputDecoration(
-                labelText: S.of(context).contactFormProjectType,
-                hintText: S.of(context).contactFormProjectTypeHint,
-              ),
-            ),
-          ),
-          SizedBox(
-            width: 470,
-            child: TextFormField(
-              onChanged: (value) {},
-              decoration: InputDecoration(
-                labelText: S.of(context).contactFormBudget,
-                hintText: S.of(context).contactFormBudgetHint,
-              ),
-            ),
-          ),
-          SizedBox(
-            child: TextFormField(
-              maxLines: 10,
-              textAlign: TextAlign.start,
-              onChanged: (value) {},
-              decoration: InputDecoration(
-                  labelText: S.of(context).contactFormDescription,
-                  hintText: S.of(context).contactFormDescriptionHint,
-                  alignLabelWithHint: true),
-            ),
-          ),
-          SizedBox(height: kDefaultPadding * 2),
-          Center(
-            child: FittedBox(
-              child: MyOutlineButton(
-                imageSrc: "assets/images/send.png",
-                text: S.of(context).contactSend,
-                press: () {},
-              ),
-            ),
-          )
         ],
       ),
     );
