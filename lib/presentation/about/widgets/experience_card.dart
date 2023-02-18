@@ -19,7 +19,7 @@ class ExperienceCard extends StatelessWidget {
       margin: EdgeInsets.symmetric(horizontal: kDefaultPadding),
       padding: EdgeInsets.all(kDefaultPadding),
       height: Adaptive.h(isDesktopScreen ? 38 : 20),
-      width: Adaptive.w(isDesktopScreen ? 24 : 45),
+      width: Adaptive.w(isDesktopScreen ? 24 : 40),
       child: DecoratedBox(
         decoration: BoxDecoration(
           color: Color(0xFF304479).withOpacity(0.8),

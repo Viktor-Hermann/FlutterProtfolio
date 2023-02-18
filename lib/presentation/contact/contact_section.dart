@@ -3,9 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:web_app/application/contact/contact_controller.dart';
 import 'package:web_app/generated/l10n.dart';
-import 'package:web_app/presentation/widgets/my_outline_button.dart';
 import 'package:web_app/presentation/widgets/section_title.dart';
-import 'package:web_app/utils/constants.dart';
 import 'package:web_app/utils/responsive.dart';
 import 'package:web_app/utils/shortcut_starter.dart';
 

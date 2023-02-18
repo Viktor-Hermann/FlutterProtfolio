@@ -10,7 +10,7 @@ class MenuHorizontal extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final menuItems = getMenuList(context);
+    final menuItems = getMenuListAsStrings(context);
     return Container(
       padding: EdgeInsets.symmetric(horizontal: kDefaultPadding),
       width: Adaptive.w(100),
@@ -30,15 +30,15 @@ class MenuHorizontal extends ConsumerWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: List.generate(
           menuItems.length,
-          (index) => buildMenuItem(index, ref),
+          (index) => buildMenuItemDesktop(index, ref),
         ),
       ),
     );
   }
 }
 
-Widget buildMenuItem(int index, WidgetRef ref) {
-  final menuItems = getMenuList(ref.context);
+Widget buildMenuItemDesktop(int index, WidgetRef ref) {
+  final menuItems = getMenuListAsStrings(ref.context);
   int selectedIndex = ref.watch(selectedIndexProvider);
   int hoverIndex = ref.watch(hoverIndexProvider);
 

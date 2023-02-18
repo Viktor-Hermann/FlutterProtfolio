@@ -3,7 +3,6 @@ import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:web_app/infrastructure/datasource/services_data.dart';
 import 'package:web_app/utils/responsive.dart';
 
-import '../../../utils/constants.dart';
 
 class ServiceCard extends StatefulWidget {
   const ServiceCard({

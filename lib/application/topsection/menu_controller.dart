@@ -12,7 +12,7 @@ final StateProvider<int> hoverIndexProvider = StateProvider<int>((ref) {
   return 0;
 });
 
-List<String> getMenuList(BuildContext context) {
+List<String> getMenuListAsStrings(BuildContext context) {
   return [
     '',
     S.of(context).menuHome,
@@ -25,6 +25,7 @@ List<String> getMenuList(BuildContext context) {
     ''
   ];
 }
+
 
 class MenuHorizontalController {
   final WidgetRef ref;

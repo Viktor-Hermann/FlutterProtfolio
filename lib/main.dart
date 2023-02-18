@@ -34,7 +34,7 @@ class MyPortfolioApp extends ConsumerWidget {
             inputDecorationTheme: kDefaultInputDecorationTheme,
             visualDensity: VisualDensity.adaptivePlatformDensity,
           ),
-          home: HomeScreen(),
+          home: DefaultTabController(length: 7, child: HomeScreen()),
         );
       },
       maxTabletWidth: 500,

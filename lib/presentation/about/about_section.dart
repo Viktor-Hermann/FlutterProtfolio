@@ -34,7 +34,11 @@ class AboutSection extends StatelessWidget {
                     padding: EdgeInsets.only(bottom: Adaptive.w(8)),
                     child: AboutTextWithSign(),
                   ),
-                  ExperienceCard(numOfExp: S.of(context).experienceYear)
+                  Padding(
+                    padding: EdgeInsets.only(left: Adaptive.w(8)),
+                    child:
+                        ExperienceCard(numOfExp: S.of(context).experienceYear),
+                  )
                 ],
               ),
             ),
