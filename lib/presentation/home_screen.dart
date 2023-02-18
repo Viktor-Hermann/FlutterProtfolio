@@ -106,7 +106,7 @@ class HomeScreen extends ConsumerWidget {
 Widget menu() {
   return Container(
     color: Color(0xFF596994),
-    height: Adaptive.h(10),
+    height: Adaptive.h(8),
     child: TabBar(
       labelColor: Colors.white,
       unselectedLabelColor: Colors.white70,
@@ -129,7 +129,7 @@ Widget menu() {
           icon: Icon(Icons.design_services, size: Adaptive.px(28)),
         ),
         Tab(
-          icon: Icon(Icons.work_history, size: Adaptive.px(28)),
+          icon: Icon(Icons.history, size: Adaptive.px(28)),
         ),
         Tab(
           icon: Icon(Icons.thumb_up, size: Adaptive.px(28)),
